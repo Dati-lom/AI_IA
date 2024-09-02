@@ -37,7 +37,7 @@ const translations = {
     prev: "წინა",
     submit: "გაგზავნა",
     assessmentTitle: "სწავლის სტილის განსაზღვრა",
-    assessmentSubtitle: "გაიგე რომელი გერგება ყველაზე მეტად",
+    assessmentSubtitle: "გაიგე რომელი ხარ შენ",
     wellDone: "გილოცავ!",
     sectionScores: "სექციების ქულები:",
     sectionOne: "სექცია ერთი (ვიზუალური)",
@@ -211,14 +211,17 @@ function Start({ setLanguage, language }) {
     <section className="fullpage-center" id="start">
       <h1>{translations[language].assessmentTitle}</h1>
       <h2>{translations[language].assessmentSubtitle}</h2>
-      <Button text={translations[language].start} func={() => scrollToElem("question-0")} />
+      {/* Add start-button class */}
+      <Button text={translations[language].start} func={() => scrollToElem("question-0")} className="start-button" />
+      {/* Add language-switch class */}
       <div className="language-switch">
         <button onClick={() => setLanguage('EN')} disabled={language === 'EN'}>English</button>
-        <button onClick={() => setLanguage('GE')} disabled={language === 'GE'}>ქართულად</button>
+        <button onClick={() => setLanguage('GE')} disabled={language === 'GE'}>Georgian</button>
       </div>
     </section>
   );
 }
+
 
 function Finish({ calculateSectionScores, handleSubmit, emailSent, language }) {
   const { chosenAnswers } = useContext(Store);

@@ -1,46 +1,64 @@
 :root {
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 16px;
-  }
-  
-  :root,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    font-size: 2.2rem;
-  }
-  
-  button {
-    border: 1px solid black;
-    padding: 0.5rem 1rem;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .btn-group,
-  .fullpage-center {
-    display: flex;
-  }
-  
-  .fullpage-center {
-    flex-direction: column;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .answers {
-    text-align: left;
-    margin-bottom: 1rem;
-    line-height: 2rem;
-  }
-  
-  .btn-group > button:last-of-type {
-    margin-left: 0.5rem;
-  }
-  
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 16px;
+}
+
+:root,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+button {
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem; /* General spacing around buttons */
+}
+
+.btn-group,
+.fullpage-center {
+  display: flex;
+}
+
+.fullpage-center {
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.answers {
+  text-align: left;
+  margin-bottom: 1rem;
+  line-height: 2rem;
+}
+
+.btn-group > button:last-of-type {
+  margin-left: 0.5rem;
+}
+
+/* Align the start button and language buttons side by side */
+.button-group-horizontal {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  gap: 1rem; /* Space between the start button and language buttons */
+  margin-top: 1rem; /* Space above the button group */
+}
+
+/* Language button styles */
+.language-switch {
+  display: flex;
+  gap: 0.5rem; /* Smaller gap between language buttons */
+}
+
+.language-switch button {
+  margin: 0; /* Reset button margin inside language-switch */
+}
