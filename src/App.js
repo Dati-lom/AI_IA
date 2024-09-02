@@ -11,12 +11,6 @@ const answerScores = {
   2: 3  // Often applies to me
 };
 
-const sections = {
-  SECTION_ONE: 0,
-  SECTION_TWO: 10,
-  SECTION_THREE: 20
-};
-
 const totalQuestions = data.results.length;
 
 export default function App() {
