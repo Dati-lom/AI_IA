@@ -9,6 +9,7 @@ import dataGE from "./dataGE.json";
 // Translation object
 const translations = {
   EN: {
+    start:"Start",
     never: "Never applies to me",
     sometimes: "Sometimes applies to me",
     often: "Often applies to me",
@@ -28,6 +29,7 @@ const translations = {
     finish: "Finish"
   },
   GE: {
+    start:"დაწყება",
     never: "არ ვრცელდება ჩემზე",
     sometimes: "ხანდახან ვრცელდება ჩემზე",
     often: "ხშირად ვრცელდება ჩემზე",
@@ -209,7 +211,7 @@ function Start({ setLanguage, language }) {
     <section className="fullpage-center" id="start">
       <h1>{translations[language].assessmentTitle}</h1>
       <h2>{translations[language].assessmentSubtitle}</h2>
-      <Button text="Let's go!" func={() => scrollToElem("question-0")} />
+      <Button text={translations[language].start} func={() => scrollToElem("question-0")} />
       <div className="language-switch">
         <button onClick={() => setLanguage('EN')} disabled={language === 'EN'}>English</button>
         <button onClick={() => setLanguage('GE')} disabled={language === 'GE'}>ქართულად</button>
