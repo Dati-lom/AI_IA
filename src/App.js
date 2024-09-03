@@ -91,11 +91,9 @@ export default function App() {
 
   // Function to find the first unanswered question
   function findFirstUnansweredQuestion() {
-    console.log("HERE");
-    console.log("CHOSENANSWERS: ", chosenAnswers);
     
     
-    return chosenAnswers.findIndex(answer => answer == undefined);
+    return chosenAnswers.findIndex(answer => answer === undefined);
   }
 
   // Define handleSubmit function
