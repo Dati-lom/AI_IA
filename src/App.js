@@ -58,7 +58,7 @@ const answerScores = {
 const totalQuestions = 30;
 
 export default function App() {
-  const [chosenAnswers, setChosenAnswers] = useState([]);
+  const [chosenAnswers, setChosenAnswers] = useState(new Array(totalQuestions));
   const [emailSent, setEmailSent] = useState(false);
   const [language, setLanguage] = useState('GE'); // State for selected language
   const [data, setData] = useState(dataGE);
@@ -91,19 +91,27 @@ export default function App() {
 
   // Function to find the first unanswered question
   function findFirstUnansweredQuestion() {
-    return chosenAnswers.findIndex(answer => answer === undefined);
+    console.log("HERE");
+    console.log("CHOSENANSWERS: ", chosenAnswers);
+    
+    
+    return chosenAnswers.findIndex(answer => answer == undefined);
   }
 
   // Define handleSubmit function
   function handleSubmit() {
     const firstUnansweredIndex = findFirstUnansweredQuestion();
+    
     if (firstUnansweredIndex !== -1) {
+      
       scrollToElem(`question-${firstUnansweredIndex}`);
       return; // Prevent submission
     }
 
     const scores = calculateSectionScores();
+    scrollToElem(`finish`);
 
+    
     emailjs.send('service_9pcguwq', 'template_hre42w5', {
       to_name: 'AIIA',
       from_name: 'AIIA',
@@ -227,13 +235,12 @@ function Finish({ calculateSectionScores, handleSubmit, emailSent, language }) {
   const { chosenAnswers } = useContext(Store);
   const scores = calculateSectionScores();
   const textCompleted = (
-    <Fragment>
+    <Fragment key="finish">
       <h3>{translations[language].wellDone}</h3>
       <h4>{translations[language].sectionScores}</h4>
       <p>{translations[language].sectionOne}: {scores.SECTION_ONE}</p>
       <p>{translations[language].sectionTwo}: {scores.SECTION_TWO}</p>
       <p>{translations[language].sectionThree}: {scores.SECTION_THREE}</p>
-      <Button text={translations[language].submit} func={handleSubmit} />
       {emailSent && <p>{translations[language].emailSuccess}</p>}
     </Fragment>
   );
